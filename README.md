@@ -56,7 +56,7 @@ VITE_WEATHER_API_KEY=your_api_key_here
 1. Clone the repository:
 ```bash
 git clone https://github.com/whymikey/weatherApp.git
-cd todo
+cd weather-app
 npm install
 npm run dev
 ```
