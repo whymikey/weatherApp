@@ -1,5 +1,6 @@
 import "./style.css";
-import { fetchWeatherData } from "./app/api";
+import { getWeather } from "./app/api.js";
+import { getWeatherImg } from "./app/utils.js";
 
 const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
@@ -33,49 +34,9 @@ function renderWeather(data) {
   container.classList.add("expanded");
 }
 
-function getWeatherImg({ weather }) {
-  switch (weather) {
-    case "Clear":
-      return "./src/images/clear.png";
-    case "Clouds":
-      return "./src/images/cloud.png";
-    case "Mist":
-      return "./src/images/mist.png";
-    case "Rain":
-      return "./src/images/rain.png";
-    case "Snow":
-      return "./src/images/snow.png";
-    default:
-      return "./src/images/404.png";
-  }
-}
-
 async function showWeather(cityName) {
-  const data = await getWeather(cityName);
+  const data = await getWeather(cityName, apiKey);
   renderWeather(data);
-}
-
-async function getWeather(city) {
-  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
-  const response = await fetchWeatherData(url);
-
-  if (!response) {
-    return {
-      isValid: false,
-    };
-  }
-
-  const weatherData = {
-    isValid: true,
-    name: response.city.name,
-    humidity: response.list[0].main.humidity,
-    wind: response.list[0].wind.speed,
-    temperature: response.list[0].main.temp,
-    weatherDescription: response.list[0].weather[0].description,
-    weather: response.list[0].weather[0].main,
-  };
-
-  return weatherData;
 }
 
 weatherInputButton.addEventListener("click", () => {
