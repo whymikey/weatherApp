@@ -6,12 +6,6 @@
    <img src="https://img.shields.io/badge/Vite-purple" alt="NPM">
 </p>
 
-## 👀 Preview
-<p align="center">
-      <img src="https://i.ibb.co/CsDrgqHs/weather-app.png">
-</p>
-
-
 ## 💡 About
 A simple and modern Weather application built with HTML, CSS, and JavaScript, powered by the OpenWeather API and bundled with Vite.
 
@@ -60,3 +54,7 @@ cd weather-app
 npm install
 npm run dev
 ```
+## 👀 Preview
+<p align="center">
+      <img src="https://i.ibb.co/CsDrgqHs/weather-app.png">
+</p>
